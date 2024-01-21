@@ -1,0 +1,270 @@
+@charset "UTF-8";
+@keyframes translateX- {
+  0% {
+    transform: translateX(-50rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes translateX {
+  0% {
+    transform: translateX(50rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes borderAnimation {
+  0% {
+    width: 0%;
+  }
+  55% {
+    width: 0%;
+  }
+  100% {
+    width: 180px;
+  }
+}
+@keyframes translateOpacitY- {
+  0% {
+    opacity: 0;
+    transform: translateY(-50rem);
+  }
+  98% {
+    opacity: 80;
+    transform: translateY(0rem);
+  }
+  100% {
+    opacity: 80;
+    transform: translateY(0);
+  }
+}
+@keyframes translateOpacitY {
+  0% {
+    opacity: 0;
+    transform: translateY(50rem);
+  }
+  95% {
+    opacity: 80;
+    transform: translateY(0rem);
+  }
+  100% {
+    opacity: 100;
+    transform: translateY(0);
+  }
+}
+@keyframes translateFillBlackX {
+  0% {
+    transform: translateX(50rem);
+    fill: rgba(255, 0, 0, 0);
+  }
+  100% {
+    transform: translateX(0);
+    fill: rgba(0, 0, 0, 0.0588235294);
+  }
+}
+@keyframes translateFillBlackX- {
+  0% {
+    transform: translateX(-50rem);
+    fill: rgba(255, 0, 0, 0);
+  }
+  50% {
+    transform: translateX(-20rem);
+    fill: rgba(16, 0, 0, 0);
+  }
+  100% {
+    transform: translateX(0);
+    fill: rgba(0, 0, 0, 0.0588235294);
+  }
+}
+@keyframes translateFillRedY {
+  0% {
+    transform: translateY(-50rem);
+    fill: rgba(255, 0, 0, 0);
+  }
+  0% {
+    transform: translateY(-20rem);
+    fill: rgba(255, 0, 0, 0.4823529412);
+  }
+  100% {
+    transform: translateY(0);
+    fill: #ff0000;
+  }
+}
+@keyframes scaleHeader {
+  0% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+    transform: scale(1);
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+html {
+  font-family: "MuseoModerno", sans-serif;
+  color: black;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+}
+
+a:visited   {
+  color: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  background-color: beige;
+  height: 10vh;
+  width: 50%;
+  animation: translateX- 1s ease-out;
+}
+
+#spriteMainCharacter {
+  width: 50px;
+  height: auto;
+}
+
+.logo {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  animation: borderAnim 1s ease-out;
+}
+
+svg {
+  height: 3rem;
+}
+
+svg > path {
+  fill: black;
+}
+
+.logo #X2,
+#S {
+  fill: rgb(255, 0, 0);
+  transform: translate(0rem);
+  animation: translateFillRedY 1.1s ease-in-out;
+}
+
+#T,
+#Y,
+#U {
+  fill: black;
+  transform: translateX(0);
+  animation: translateFillBlackX 1s ease-in-out;
+}
+
+#X1,
+#bar {
+  fill: black;
+  transform: translateX(0);
+  animation: translateFillBlackX 1.1s ease-in-out;
+}
+
+.border-gradient-box {
+  border: 1px solid;
+  border-image-slice: 1;
+  border-width: 0.5rem;
+  overflow: hidden;
+  width: 180px;
+}
+
+.border-gradient {
+  border-image-source: linear-gradient(to left, rgb(255, 0, 0), rgb(255, 0, 0));
+  animation: borderAnimation 1.2s ease-in-out;
+}
+
+.border-mask {
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+header {
+  background-color: white;
+  height: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.018);
+  transition: box-shadow 0.8s ease-in-out;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 100%;
+  animation: scaleHeader 1s;
+}
+
+header:hover {
+  box-shadow: 10px 10px rgba(178, 178, 178, 0.073);
+}
+
+header > nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+header > nav > ul {
+  display: flex;
+  flex-direction: row;
+}
+
+.header-nav-home {
+  opacity: 100;
+  transform: translateY(0);
+  animation: translateOpacitY 1s;
+}
+
+.header-nav-gallerie {
+  color: black;
+}
+
+.header-nav-contact {
+  opacity: 100;
+  transform: translateY(0);
+  animation: translateOpacitY- 1s;
+}
+
+header > nav > ul > li {
+  width: 100%;
+  padding: 1rem;
+}
+
+header > nav > ul > li > a {
+  width: 100%;
+  color: black;
+  font-family: "Bebas Neue", sans-serif;
+}/*# sourceMappingURL=style.css.map */
